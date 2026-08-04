@@ -1,0 +1,18 @@
+package database
+
+import("context"
+"os"
+"github.com/go-redis/redis"
+)
+
+
+var Ctx = context.Background()
+
+func CreateClient(dbNo int) *redis.Client{
+	rdb := redis.NewClient(&redis.Options{
+		Addr:os.Getenv("DB_ADDRESS"),
+		Password:os.Getenv("DB_PASSWORD"),
+
+	})
+	return rdb 
+}
