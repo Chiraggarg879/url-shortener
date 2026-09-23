@@ -26,3 +26,8 @@ func RemoveDomainError(url string) bool {
 
 	return true
 }
+
+// func dsn(dbName string) string {
+// 	return fmt.Sprintf("%s:%s@tcp(%s)/%s", username, password, hostname, dbName)
+// }
+

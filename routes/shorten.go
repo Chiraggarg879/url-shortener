@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"database/sql"
 	"os"
 	"strconv"
 	"time"
@@ -28,7 +29,7 @@ type response struct {
 }
 
 
-func ShortenURL(c *fiber.Ctx) error {
+func ShortenURL(c *fiber.Ctx,db*sql.DB) error {
 
 	//creating a request url
 	body := new(request)
@@ -68,7 +69,6 @@ func ShortenURL(c *fiber.Ctx) error {
 	 }
 
 	 //enforce https,SSL
-
 	 body.URL = helpers.EnforceHTTP(body.URL)
 
 	 //check for customShort
